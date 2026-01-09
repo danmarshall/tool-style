@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tool Name</h1>
+        <nav>
+            <button type="button" id="toolsToggle">Tools ▾</button>
+            <ul id="toolsList">
+                <li><a href="/tool1.html">Tool 1</a></li>
+                <li><a href="/tool2.html">Tool 2</a></li>
+                <li><a href="/tool3.html">Tool 3</a></li>
+                <li><a href="/tool4.html">Tool 4</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <aside>
+            <section>
+                <h2>Input Group 1</h2>
+                <label for="input1">Input 1</label>
+                <input type="text" id="input1" name="input1">
+                
+                <label for="input2">Input 2</label>
+                <input type="text" id="input2" name="input2">
+                
+                <label>Alignment</label>
+                <div class="button-group">
+                    <button type="button">◀</button>
+                    <button type="button">▬</button>
+                    <button type="button">▶</button>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Input Group 2</h2>
+                <label for="option1">Option 1</label>
+                <select id="option1" name="option1">
+                    <option>Choose...</option>
+                </select>
+                
+                <label for="slider1">Slider 1</label>
+                <input type="range" id="slider1" name="slider1" min="0" max="100" value="50">
+                
+                <label for="slider2">Slider 2</label>
+                <input type="range" id="slider2" name="slider2" min="0" max="10" step="0.1" value="5">
+                
+                <label for="checkbox1">
+                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                    Enable feature
+                </label>
+            </section>
+            
+            <button type="button">Run Tool</button>
+        </aside>
+        
+        <main>
+            <h2>Output</h2>
+            <div class="canvas">
+                <!-- Tool output goes here -->
+            </div>
+        </main>
+        
+        <aside id="ads-right">
+            <!-- Google Ads code here -->
+            <div style="width: 160px; height: 600px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #999;">Ad Space</div>
+        </aside>
+    </div>
+    
+    <div id="tablet-bottom-ad">
+        <!-- Google Ads code here -->
+        <div style="width: 728px; height: 90px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #999; margin: 0 auto;">Ad Space</div>
+    </div>
+    
+    <footer>
+        &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
