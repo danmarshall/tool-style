@@ -1,11 +1,12 @@
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
     margin: 0;
+    font-size: 14px;
 }
 
 header {
-    padding: 1rem;
+    padding: 0 1rem;
     border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
@@ -13,7 +14,8 @@ header {
 }
 
 header h1 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
 }
 
 nav {
@@ -23,6 +25,7 @@ nav {
 nav button {
     padding: 0.5rem 1rem;
     cursor: pointer;
+    font-family: inherit;
 }
 
 nav ul {
@@ -45,6 +48,7 @@ nav ul li a {
     padding: 0.5rem 1rem;
     text-decoration: none;
     color: inherit;
+    font-family: 'Open Sans', sans-serif;
 }
 
 nav ul li a:hover {
@@ -72,11 +76,15 @@ aside section {
 aside h2 {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
 }
 
 aside label {
     display: block;
     margin-bottom: 0.25rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 aside input[type="text"],
@@ -90,11 +98,13 @@ aside textarea {
     margin-bottom: 0.75rem;
     padding: 0.5rem;
     box-sizing: border-box;
+    font-family: inherit;
 }
 
 aside button {
     width: 100%;
     padding: 0.5rem;
+    font-family: inherit;
 }
 
 .button-group {
@@ -118,7 +128,7 @@ main {
 
 .canvas {
     margin-top: 1rem;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 footer {
