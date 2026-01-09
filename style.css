@@ -109,12 +109,6 @@ aside button {
     padding: 0.5rem;
 }
 
-#ads-right {
-    width: 180px;
-    padding: 1rem;
-    border-left: 1px solid #ccc;
-}
-
 main {
     flex: 1;
     padding: 1rem;
@@ -170,7 +164,9 @@ footer a {
 #ads-right {
     width: 180px;
     padding: 1rem;
+    margin-right: 1rem;
     border-left: 1px solid #ccc;
+    border-right: none;
     display: none;
     box-sizing: border-box;
     overflow-x: hidden;
