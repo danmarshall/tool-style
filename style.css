@@ -171,6 +171,12 @@ footer a {
 }
 
 /* Ads */
+.ad-label {
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 8px;
+}
+
 #ads-right {
     width: 180px;
     padding: 1rem;
@@ -184,6 +190,10 @@ footer a {
 
 #tablet-bottom-ad { 
     display: none; 
+}
+
+#tablet-bottom-ad .ad-label {
+    text-align: center;
 }
 
 @media (min-width: 1000px) and (max-width: 1279px) {
