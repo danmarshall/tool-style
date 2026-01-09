@@ -24,52 +24,67 @@ if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
 
 const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
 gl.shaderSource(fragmentShader, `
-    #ifdef GL_OES_standard_derivatives
-    #extension GL_OES_standard_derivatives : enable
-    #endif
     precision mediump float;
     uniform float time;
     uniform vec2 resolution;
     
-    #define h21(p) fract(sin(dot(p,vec2(23.43,84.21)))*4832.32)
+    float scale = 6.0;
+    float sqrt3d3 = 0.57735026918962576450914878050196;
+    float twoSqrt3d3 = 1.1547005383792515290182975610039;
     
-    vec3 hs(float h, float s, float T) {
-        return 1.0-s+s*clamp(abs(mod(h+h+T*0.2+vec3(0.0,4.0,2.0),6.0)-3.0)-1.0,0.0,1.0);
+    vec4 hexagon(vec2 p) 
+    {
+        vec2 q = vec2(p.x*2.0*sqrt3d3, p.y + p.x*sqrt3d3);
+        
+        vec2 pi = floor(q);
+        vec2 pf = fract(q);
+
+        float v = mod(pi.x + pi.y, 3.0);
+
+        float ca = step(1.0,v);
+        float cb = step(2.0,v);
+        vec2 ma = step(pf.xy,pf.yx);
+        
+        float e = dot(ma, 1.0-pf.yx + ca*(pf.x+pf.y-1.0) + cb*(pf.yx-2.0*pf.xy));
+        
+        p = vec2(q.x + floor(0.5+p.y/1.5), 4.0*p.y/3.0)*0.5 + 0.5;
+        float f = length((fract(p) - 0.5)*vec2(1.0,0.85));		
+        
+        return vec4(pi + ca - cb*ma, e, f);
     }
-    
-    vec4 hex(vec2 U) {
-        vec2 T = vec2(1.732,1.0),
-             p1 = floor(U/T) + 0.5,
-             p2 = ceil((U-vec2(1.0,0.5)) / T),
-             h1 = U - p1*T,
-             h2 = U - p2*T;
-        return dot(h1,h1) < dot(h2,h2) ? vec4(h1,p1) : vec4(h2,p2);
+
+    float hash1(vec2 p) { 
+        float n = dot(p,vec2(127.1,311.7)); 
+        return fract(sin(n)*43758.5453); 
     }
-    
-    void main() {
-        vec2 F = gl_FragCoord.xy;
-        float T = (time + 150.0) * 0.1;
-        vec2 R = resolution.xy,
-             U = (F+F - R) / max(R.x,R.y) + T*vec2(0.005,0.01);
-        vec4 H = hex(U.yx*6.0);
-        vec2 p = H.xy, id = H.zw;
-        float px = 0.01,
-              h = h21(id),
-              c = id.x*0.15 + h*0.45,
-              w0 = p.x,
-              w1 = dot(p,vec2(-0.5,0.866)),
-              w2 = dot(p,vec2(-0.5,-0.866)),
-              m = max(max(w0,w1),w2);
-        vec3 C = m==w1 ? 0.45*hs(c+0.4,1.0,T) 
-               : m==w2 ? 0.15*hs(c+0.6,1.0,T)
-               :         0.45*hs(c+0.2,0.75,T);
-        h = max(abs(p.x)*0.866 + abs(p.y)/2.0, abs(p.y))
-            - 0.3 - 0.2*cos(T*h);
-        float edgeSmooth = smoothstep(px,-px,h);
-        vec3 color = sqrt(edgeSmooth * mix(C, vec3(0.9), smoothstep(px,-px,abs(h)-0.01)));
-        color = mix(vec3(0.5), color, 0.6);
-        gl_FragColor.rgb = color;
-        gl_FragColor.a = 1.0;
+
+    void main() 
+    {
+        vec2 uv = gl_FragCoord.xy/resolution.xy;
+        vec2 pos = gl_FragCoord.xy / resolution.y;
+        float ratio = resolution.x / resolution.y;
+        
+        vec4 h = hexagon(scale * pos);
+        float t = time * 0.05;
+        float hash = hash1(h.xy);
+        float hxToWidth = scale * ratio * twoSqrt3d3;
+        float front = -h.x + (fract(t) * 1.4 - 0.2 + hash * 0.15) * hxToWidth;
+        float hx = h.x / hxToWidth + front;
+        
+        vec3 cola = vec3(0.35, 0.35, 0.35);
+        vec3 colb = vec3(0.5, 0.5, 0.5);
+        vec3 bg = vec3(0.7, 0.7, 0.7);
+        float cycle = fract(t * 0.5);
+        float flip = step(0.5, cycle);
+        float progress = fract(cycle * 2.0);
+        float adjustedFront = -h.x + (progress * 1.4 - 0.2 + hash * 0.15) * hxToWidth;
+        float adjustedHx = h.x / hxToWidth + adjustedFront;
+        float growth = smoothstep(0.75, 1.0, adjustedHx * (h.z + 0.025));
+        vec3 colorA = mix(cola, colb, flip);
+        vec3 colorB = mix(colb, cola, flip);
+        vec3 col = mix(bg, mix(colorA, colorB, growth), smoothstep(0.05, 0.1, h.z));
+        
+        gl_FragColor = vec4(col, 1.0);
     }
 `);
 gl.compileShader(fragmentShader);
