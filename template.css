@@ -3,11 +3,12 @@ body {
     line-height: 1.5;
     margin: 0;
     font-size: 14px;
+    --main-margin: 1.5rem;
+    --main-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 header {
     padding: 0 1rem;
-    border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +100,6 @@ aside {
     width: 300px;
     padding: 1rem;
     padding-bottom: 1.5rem;
-    border-right: 1px solid #ccc;
     overflow-y: auto;
     box-sizing: border-box;
 }
@@ -243,6 +243,9 @@ main {
     padding: 1rem;
     overflow-y: auto;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: var(--main-margin);
+    box-shadow: var(--main-shadow);
 }
 
 .canvas {
@@ -252,7 +255,6 @@ main {
 
 footer {
     padding: 1rem;
-    border-top: 1px solid #ccc;
     text-align: center;
     font-size: 0.875rem;
 }
@@ -271,15 +273,17 @@ footer a {
   aside {
     width: 100%;
     height: 50vh;
-    border-right: none;
     border-top: 1px solid #ccc;
     order: 2;
   }
   
   main {
-    width: 100%;
+    width: auto;
     height: 50vh;
     order: 1;
+    margin: var(--main-margin);
+    border: 1px solid #ccc;
+    box-shadow: var(--main-shadow);
   }
   
   footer {
@@ -300,8 +304,6 @@ footer a {
     width: 180px;
     padding: 1rem;
     margin-right: 1rem;
-    border-left: 1px solid #ccc;
-    border-right: none;
     display: none;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -320,10 +322,13 @@ footer a {
     display: block;
     margin: 0;
     padding: 12px;
-    border-top: 1px solid #ccc;
   }
 }
 
 @media (min-width: 1280px) {
   #ads-right { display: block; }
+  
+  main {
+    margin-right: calc(var(--main-margin) - 1rem);
+  }
 }
