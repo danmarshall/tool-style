@@ -8,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@700&family=Open+Sans:wght@400;600&family=IBM+Plex+Sans:wght@600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <header>
+        <div class="header-bg" style="background-image: url('tiler-pattern-1768110249839.svg'); background-size: 750px; background-position: 0px -22px; opacity: 0.3;"></div>
         <h1>Tool Name</h1>
         <nav>
             <button type="button" id="toolsToggle">Tools ▾</button>
@@ -25,6 +27,31 @@
     
     <div class="container">
         <aside>
+            <section class="accordion-section">
+                <h2 class="accordion-header">
+                    <button type="button" aria-expanded="false" aria-controls="accordion-content-1" id="accordion-trigger-1">
+                        <span>Collapsible Group</span>
+                        <i data-lucide="chevron-down" aria-hidden="true"></i>
+                    </button>
+                </h2>
+                <div class="accordion-content" id="accordion-content-1" role="region" aria-labelledby="accordion-trigger-1">
+                    <label for="accordionInput1">Hidden Input 1</label>
+                    <input type="text" id="accordionInput1" name="accordionInput1">
+                    
+                    <label for="accordionInput2">Hidden Input 2</label>
+                    <input type="text" id="accordionInput2" name="accordionInput2">
+                </div>
+            </section>
+            
+            <section>
+                <h2>Tabs Example</h2>
+                <div class="tabs" role="tablist">
+                    <button type="button" class="tab active" role="tab" aria-selected="true">Tab 1</button>
+                    <button type="button" class="tab" role="tab" aria-selected="false">Tab 2</button>
+                    <button type="button" class="tab" role="tab" aria-selected="false">Tab 3</button>
+                </div>
+            </section>
+            
             <section>
                 <h2>Input Group 1</h2>
                 <label for="input1">Input 1</label>
