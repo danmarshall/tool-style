@@ -83,8 +83,8 @@ export const Header: React.FC<HeaderProps> = ({
           {toolsMenu.label} ▾
         </button>
         <ul className={`${styles.toolsList} ${isToolsOpen ? styles.toolsListOpen : ''}`}>
-          {toolsMenu.items.map((item, index) => (
-            <li key={index} className={styles.toolsListItem}>
+          {toolsMenu.items.map((item) => (
+            <li key={item.url} className={styles.toolsListItem}>
               <a href={item.url}>{item.label}</a>
             </li>
           ))}
