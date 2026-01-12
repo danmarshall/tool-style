@@ -84,10 +84,10 @@ header a {
     text-transform: lowercase;
 }
 
-.brand img {
-    height: 40px;
-    width: auto;
+.logo::before {
+    content: url('dans_tools.svg');
     display: block;
+    height: 40px;
 }
 
 .brand:hover {
