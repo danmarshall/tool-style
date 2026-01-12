@@ -70,7 +70,7 @@ export const themeToggle = style({
   }
 });
 
-export const buyCoffe = style({
+export const buyCoffee = style({
   color: 'inherit',
 });
 

@@ -101,7 +101,7 @@ export const Header: React.FC<HeaderProps> = ({
         )}
         {buyCoffeeUrl && (
           <a
-            className={`${styles.headerLink} ${styles.buyCoffe}`}
+            className={`${styles.headerLink} ${styles.buyCoffee}`}
             href={buyCoffeeUrl}
             target="_blank"
             rel="noopener noreferrer"

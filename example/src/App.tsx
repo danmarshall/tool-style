@@ -5,7 +5,7 @@ import {
   SidebarSection,
   Tabs,
   ButtonGroup,
-} from '../src/index';
+} from '@danmarshall/tool-style';
 
 function App() {
   const [activeTab, setActiveTab] = useState(0);
