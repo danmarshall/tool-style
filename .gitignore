@@ -83,6 +83,9 @@ out
 .nuxt
 dist
 
+# Astro build output
+.astro
+
 # Build output
 *.css.ts.vanilla.css
 
