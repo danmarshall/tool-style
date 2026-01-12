@@ -54,7 +54,7 @@ export const ToolTemplate: React.FC<ToolTemplateProps> = ({
         
         <aside className={containerStyles.adsRight}>
           <div className={containerStyles.adLabel}>Advertisement</div>
-          <div style={{ width: '160px', height: '600px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: '#999' }}>
+          <div className={containerStyles.adPlaceholderRight}>
             Ad Space
           </div>
         </aside>
@@ -64,7 +64,7 @@ export const ToolTemplate: React.FC<ToolTemplateProps> = ({
         <div className={`${containerStyles.adLabel} ${containerStyles.tabletBottomAdLabel}`}>
           Advertisement
         </div>
-        <div style={{ width: '728px', height: '90px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: '#999', margin: '0 auto' }}>
+        <div className={containerStyles.adPlaceholderBottom}>
           Ad Space
         </div>
       </div>
