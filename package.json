@@ -1,0 +1,14 @@
+{
+  "name": "@danmarshall/tool-style",
+  "version": "1.0.0",
+  "description": "Styles for common tools",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Marshall",
+  "license": "MIT",
+  "dependencies": {
+    "lucide": "^0.562.0"
+  }
+}
