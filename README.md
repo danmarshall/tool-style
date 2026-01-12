@@ -87,16 +87,14 @@ function MyCustomLayout() {
 
 ### ToolTemplate
 
-Main component that includes header, sidebar, main content area, footer, and optional ad sections.
+Main component that includes header, sidebar, main content area, footer, and ad sections.
 
 **Props:**
 - `headerProps`: Configuration for the header (see Header component)
 - `sidebar`: React node for sidebar content
 - `main`: React node for main content
-- `adsRight`: Optional React node for right sidebar ads (visible on large screens)
-- `tabletBottomAd`: Optional React node for bottom ads (visible on tablets)
 
-Note: The footer is hardcoded and cannot be customized.
+Note: The footer and ad sections are hardcoded and cannot be customized.
 
 ### Header
 

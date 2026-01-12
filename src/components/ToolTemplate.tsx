@@ -10,16 +10,12 @@ export interface ToolTemplateProps {
   headerProps: HeaderProps;
   sidebar: React.ReactNode;
   main: React.ReactNode;
-  adsRight?: React.ReactNode;
-  tabletBottomAd?: React.ReactNode;
 }
 
 export const ToolTemplate: React.FC<ToolTemplateProps> = ({
   headerProps,
   sidebar,
   main,
-  adsRight,
-  tabletBottomAd,
 }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -56,22 +52,22 @@ export const ToolTemplate: React.FC<ToolTemplateProps> = ({
         <Sidebar>{sidebar}</Sidebar>
         <Main>{main}</Main>
         
-        {adsRight && (
-          <aside className={containerStyles.adsRight}>
-            <div className={containerStyles.adLabel}>Advertisement</div>
-            {adsRight}
-          </aside>
-        )}
+        <aside className={containerStyles.adsRight}>
+          <div className={containerStyles.adLabel}>Advertisement</div>
+          <div style={{ width: '160px', height: '600px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: '#999' }}>
+            Ad Space
+          </div>
+        </aside>
       </div>
       
-      {tabletBottomAd && (
-        <div className={containerStyles.tabletBottomAd}>
-          <div className={`${containerStyles.adLabel} ${containerStyles.tabletBottomAdLabel}`}>
-            Advertisement
-          </div>
-          {tabletBottomAd}
+      <div className={containerStyles.tabletBottomAd}>
+        <div className={`${containerStyles.adLabel} ${containerStyles.tabletBottomAdLabel}`}>
+          Advertisement
         </div>
-      )}
+        <div style={{ width: '728px', height: '90px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: '#999', margin: '0 auto' }}>
+          Ad Space
+        </div>
+      </div>
       
       <Footer>
         &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>

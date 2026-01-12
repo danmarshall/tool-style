@@ -58,16 +58,6 @@ function App() {
           </section>
         </>
       }
-      adsRight={
-        <div style={{ width: '160px', height: '600px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: '#999' }}>
-          Ad Space
-        </div>
-      }
-      tabletBottomAd={
-        <div style={{ width: '728px', height: '90px', background: '#f5f5f5', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: '#999', margin: '0 auto' }}>
-          Ad Space
-        </div>
-      }
     />
   );
 }
