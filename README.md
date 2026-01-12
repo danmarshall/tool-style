@@ -42,94 +42,30 @@ function App() {
 }
 ```
 
-### Using Individual Components
-
-```tsx
-import React from 'react';
-import {
-  Header,
-  Sidebar,
-  Main,
-  Footer,
-} from '@danmarshall/tool-style';
-
-function MyCustomLayout() {
-  return (
-    <>
-      <Header title="My Custom Tool" />
-      
-      <div style={{ display: 'flex' }}>
-        <Sidebar>
-          <section>
-            <h2>Settings</h2>
-            <label>Input 1</label>
-            <input type="text" />
-          </section>
-        </Sidebar>
-        
-        <Main>
-          <section>
-            <h2>Output</h2>
-            <p>Content goes here</p>
-          </section>
-        </Main>
-      </div>
-      
-      <Footer>
-        &copy; 2026 My Tool | <a href="/privacy">Privacy</a>
-      </Footer>
-    </>
-  );
-}
-```
-
 ## Components
 
 ### ToolTemplate
 
-Main component that includes header, sidebar, main content area, footer, and ad sections.
+The main and only exported component that provides the complete tool layout.
 
 **Props:**
-- `headerProps`: Configuration for the header (see Header component)
+- `headerProps`: Configuration for the header
+  - `title`: Page title (required)
+  - `logoUrl`: URL for logo link (default: '/')
+  - `backgroundImage`: Optional background image URL
+  - `backgroundImageStyle`: Optional styling for background image
+  - `onThemeToggle`: Optional custom theme toggle handler
+  - `isDarkMode`: Theme state
 - `sidebar`: React node for sidebar content
 - `main`: React node for main content
 
-Note: The footer and ad sections are hardcoded and cannot be customized.
+**Hardcoded elements** (cannot be customized):
+- Footer content: "© 2026 Tool Name | Privacy | Terms"
+- Coffee donation URL: https://buymeacoffee.com/danmarshall
+- Tools menu: "Other Tools" dropdown with Tool 1-4 links
+- Ad sections: Right sidebar ad (160x600) and tablet bottom ad (728x90)
 
-### Header
-
-Page header with logo, title, tools menu, theme toggle, and coffee button.
-
-**Props:**
-- `title`: Page title (required)
-- `logoUrl`: URL for logo link (default: '/')
-- `backgroundImage`: Optional background image URL
-- `backgroundImageStyle`: Optional styling for background image
-- `onThemeToggle`: Optional custom theme toggle handler
-- `isDarkMode`: Theme state
-
-Note: The "Buy me a coffee" link and "Other Tools" menu are hardcoded and cannot be customized.
-
-### Sidebar
-
-Container for sidebar content with proper styling.
-
-**Props:**
-- `children`: Sidebar content
-
-### Main
-
-Container for main content area.
-
-**Props:**
-- `children`: Main content
-
-### Footer
-
-Footer component with centered text.
-
-**Props:**
-- `children`: Footer content
+Note: Individual components (Header, Sidebar, Main, Footer) are not exported and cannot be used separately.
 
 ## Styling
 

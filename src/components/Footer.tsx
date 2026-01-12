@@ -1,14 +1,10 @@
 import React from 'react';
 import * as styles from '../styles/footer.css';
 
-export interface FooterProps {
-  children: React.ReactNode;
-}
-
-export const Footer: React.FC<FooterProps> = ({ children }) => {
+export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      {children}
+      &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
     </footer>
   );
 };

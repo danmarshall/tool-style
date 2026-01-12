@@ -69,9 +69,7 @@ export const ToolTemplate: React.FC<ToolTemplateProps> = ({
         </div>
       </div>
       
-      <Footer>
-        &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
-      </Footer>
+      <Footer />
     </>
   );
 };
