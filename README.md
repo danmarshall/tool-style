@@ -1,0 +1,239 @@
+# @danmarshall/tool-style
+
+React component library with vanilla-extract CSS modules for creating tool-style applications.
+
+## Installation
+
+```bash
+npm install @danmarshall/tool-style react react-dom
+```
+
+## Usage
+
+The library provides a complete template component along with individual components for building tool-style applications.
+
+### Basic Example
+
+```tsx
+import React from 'react';
+import { ToolTemplate } from '@danmarshall/tool-style';
+
+function App() {
+  return (
+    <ToolTemplate
+      headerProps={{
+        title: "My Tool",
+        toolsMenu: {
+          label: "Other Tools",
+          items: [
+            { label: "Tool 1", url: "/tool1" },
+            { label: "Tool 2", url: "/tool2" },
+          ]
+        }
+      }}
+      sidebar={
+        <div>
+          <h2>Settings</h2>
+          <label>Input 1</label>
+          <input type="text" />
+        </div>
+      }
+      main={
+        <div>
+          <h2>Output</h2>
+          <p>Your tool output goes here</p>
+        </div>
+      }
+      footer={
+        <>
+          &copy; 2026 My Tool | <a href="/privacy">Privacy</a>
+        </>
+      }
+    />
+  );
+}
+```
+
+### Using Individual Components
+
+```tsx
+import React from 'react';
+import {
+  Header,
+  Sidebar,
+  Main,
+  Footer,
+  AccordionSection,
+  SidebarSection,
+  Tabs,
+  ButtonGroup,
+} from '@danmarshall/tool-style';
+
+function MyCustomLayout() {
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  return (
+    <>
+      <Header
+        title="My Custom Tool"
+        toolsMenu={{
+          label: "Other Tools",
+          items: [
+            { label: "Tool 1", url: "/tool1" },
+            { label: "Tool 2", url: "/tool2" },
+          ]
+        }}
+      />
+      
+      <div style={{ display: 'flex' }}>
+        <Sidebar>
+          <AccordionSection title="Advanced Settings" defaultOpen={false}>
+            <label>Hidden Input</label>
+            <input type="text" />
+          </AccordionSection>
+          
+          <SidebarSection title="Tabs Example">
+            <Tabs
+              tabs={["Tab 1", "Tab 2", "Tab 3"]}
+              activeTab={activeTab}
+              onTabChange={setActiveTab}
+            />
+          </SidebarSection>
+          
+          <SidebarSection title="Alignment">
+            <ButtonGroup>
+              <button>◀</button>
+              <button>▬</button>
+              <button>▶</button>
+            </ButtonGroup>
+          </SidebarSection>
+        </Sidebar>
+        
+        <Main>
+          <section>
+            <h2>Output</h2>
+            <p>Content goes here</p>
+          </section>
+        </Main>
+      </div>
+      
+      <Footer>
+        &copy; 2026 My Tool | <a href="/privacy">Privacy</a>
+      </Footer>
+    </>
+  );
+}
+```
+
+## Components
+
+### ToolTemplate
+
+Main component that includes header, sidebar, main content area, footer, and optional ad sections.
+
+**Props:**
+- `headerProps`: Configuration for the header (see Header component)
+- `sidebar`: React node for sidebar content
+- `main`: React node for main content
+- `footer`: React node for footer content
+- `adsRight`: Optional React node for right sidebar ads (visible on large screens)
+- `tabletBottomAd`: Optional React node for bottom ads (visible on tablets)
+
+### Header
+
+Page header with logo, title, tools menu, theme toggle, and coffee button.
+
+**Props:**
+- `title`: Page title (required)
+- `logoUrl`: URL for logo link (default: '/')
+- `backgroundImage`: Optional background image URL
+- `backgroundImageStyle`: Optional styling for background image
+- `toolsMenu`: Optional menu with label and items
+- `buyCoffeeUrl`: URL for coffee button (default: buymeacoffee.com)
+- `onThemeToggle`: Optional custom theme toggle handler
+- `isDarkMode`: Theme state
+
+### Sidebar
+
+Container for sidebar content with proper styling.
+
+**Props:**
+- `children`: Sidebar content
+
+### Main
+
+Container for main content area.
+
+**Props:**
+- `children`: Main content
+
+### Footer
+
+Footer component with centered text.
+
+**Props:**
+- `children`: Footer content
+
+### Helper Components
+
+#### AccordionSection
+
+Collapsible section for sidebar.
+
+**Props:**
+- `title`: Section title
+- `children`: Content
+- `defaultOpen`: Whether section is open by default (default: false)
+
+#### SidebarSection
+
+Standard sidebar section with optional title.
+
+**Props:**
+- `title`: Optional section title
+- `children`: Section content
+
+#### Tabs
+
+Tab navigation component.
+
+**Props:**
+- `tabs`: Array of tab labels
+- `activeTab`: Index of active tab
+- `onTabChange`: Callback when tab changes
+
+#### ButtonGroup
+
+Grouped buttons for sidebar (e.g., alignment controls).
+
+**Props:**
+- `children`: Button elements
+
+## Styling
+
+The library uses vanilla-extract for CSS modules. You can import and use the style modules directly:
+
+```tsx
+import { headerStyles, sidebarStyles, mainStyles, footerStyles, containerStyles, vars } from '@danmarshall/tool-style';
+```
+
+## Theme Variables
+
+Access theme variables through `vars`:
+
+```tsx
+import { vars } from '@danmarshall/tool-style';
+
+// vars.color.bgColor
+// vars.color.textColor
+// vars.color.borderColor
+// etc.
+```
+
+## Dark Mode
+
+Dark mode is automatically handled by the ToolTemplate component. It saves the theme preference to localStorage and applies the `dark-mode` class to the body element.
+
+## License
+
+MIT
