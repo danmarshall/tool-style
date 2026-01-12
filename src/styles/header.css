@@ -1,0 +1,112 @@
+/* Header styles */
+header {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 4rem;
+}
+
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header a {
+    text-decoration: none;
+}
+
+#buy-coffee {
+    color: inherit;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: inherit;
+}
+
+#themeToggle:hover {
+    opacity: 0.7;
+}
+
+.brand {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: #666;
+    text-transform: lowercase;
+}
+
+.logo::before {
+    content: url('/dans_tools.svg');
+    display: block;
+    height: 40px;
+}
+
+.brand:hover {
+    color: #333;
+}
+
+header h1 {
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    margin: 0 1rem 0 0;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+nav button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+nav ul {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--nav-bg);
+    border: 1px solid var(--border-color);
+    list-style: none;
+    min-width: 150px;
+    display: none;
+}
+
+nav ul.open {
+    display: block;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav ul li a:hover {
+    background: var(--button-hover);
+}
