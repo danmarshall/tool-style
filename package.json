@@ -10,8 +10,7 @@
   "files": [
     "src/Layout.astro",
     "src/styles",
-    "src/scripts",
-    "dans_tools.svg"
+    "public"
   ],
   "scripts": {
     "dev": "astro dev",
