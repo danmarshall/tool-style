@@ -23,13 +23,6 @@ function App() {
     <ToolTemplate
       headerProps={{
         title: "My Tool",
-        toolsMenu: {
-          label: "Other Tools",
-          items: [
-            { label: "Tool 1", url: "/tool1" },
-            { label: "Tool 2", url: "/tool2" },
-          ]
-        }
       }}
       sidebar={
         <div>
@@ -63,16 +56,7 @@ import {
 function MyCustomLayout() {
   return (
     <>
-      <Header
-        title="My Custom Tool"
-        toolsMenu={{
-          label: "Other Tools",
-          items: [
-            { label: "Tool 1", url: "/tool1" },
-            { label: "Tool 2", url: "/tool2" },
-          ]
-        }}
-      />
+      <Header title="My Custom Tool" />
       
       <div style={{ display: 'flex' }}>
         <Sidebar>
@@ -123,11 +107,10 @@ Page header with logo, title, tools menu, theme toggle, and coffee button.
 - `logoUrl`: URL for logo link (default: '/')
 - `backgroundImage`: Optional background image URL
 - `backgroundImageStyle`: Optional styling for background image
-- `toolsMenu`: Optional menu with label and items
 - `onThemeToggle`: Optional custom theme toggle handler
 - `isDarkMode`: Theme state
 
-Note: The "Buy me a coffee" link is hardcoded to https://buymeacoffee.com/danmarshall.
+Note: The "Buy me a coffee" link and "Other Tools" menu are hardcoded and cannot be customized.
 
 ### Sidebar
 

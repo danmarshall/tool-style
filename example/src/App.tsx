@@ -12,15 +12,6 @@ function App() {
           backgroundPosition: '0px -22px',
           opacity: 0.3,
         },
-        toolsMenu: {
-          label: "Other Tools",
-          items: [
-            { label: "Tool 1", url: "/tool1.html" },
-            { label: "Tool 2", url: "/tool2.html" },
-            { label: "Tool 3", url: "/tool3.html" },
-            { label: "Tool 4", url: "/tool4.html" },
-          ]
-        }
       }}
       sidebar={
         <>

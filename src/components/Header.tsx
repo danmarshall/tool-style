@@ -12,10 +12,6 @@ export interface HeaderProps {
     backgroundPosition?: string;
     opacity?: number;
   };
-  toolsMenu?: {
-    label: string;
-    items: Array<{ label: string; url: string }>;
-  };
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
 }
@@ -29,11 +25,21 @@ export const Header: React.FC<HeaderProps> = ({
     backgroundPosition: '0px -22px',
     opacity: 0.3,
   },
-  toolsMenu,
   onThemeToggle,
   isDarkMode = false,
 }) => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
+
+  // Hardcoded tools list
+  const toolsMenu = {
+    label: "Other Tools",
+    items: [
+      { label: "Tool 1", url: "/tool1.html" },
+      { label: "Tool 2", url: "/tool2.html" },
+      { label: "Tool 3", url: "/tool3.html" },
+      { label: "Tool 4", url: "/tool4.html" },
+    ]
+  };
 
   const handleToolsToggle = () => {
     setIsToolsOpen(!isToolsOpen);
@@ -69,24 +75,20 @@ export const Header: React.FC<HeaderProps> = ({
         <h1 className={styles.title}>{title}</h1>
       </div>
       <nav className={styles.nav}>
-        {toolsMenu && (
-          <>
-            <button
-              type="button"
-              className={styles.navButton}
-              onClick={handleToolsToggle}
-            >
-              {toolsMenu.label} ▾
-            </button>
-            <ul className={`${styles.toolsList} ${isToolsOpen ? styles.toolsListOpen : ''}`}>
-              {toolsMenu.items.map((item, index) => (
-                <li key={index} className={styles.toolsListItem}>
-                  <a href={item.url}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+        <button
+          type="button"
+          className={styles.navButton}
+          onClick={handleToolsToggle}
+        >
+          {toolsMenu.label} ▾
+        </button>
+        <ul className={`${styles.toolsList} ${isToolsOpen ? styles.toolsListOpen : ''}`}>
+          {toolsMenu.items.map((item, index) => (
+            <li key={index} className={styles.toolsListItem}>
+              <a href={item.url}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
         {onThemeToggle && (
           <button
             type="button"
