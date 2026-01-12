@@ -16,7 +16,6 @@ export interface HeaderProps {
     label: string;
     items: Array<{ label: string; url: string }>;
   };
-  buyCoffeeUrl?: string;
   onThemeToggle?: () => void;
   isDarkMode?: boolean;
 }
@@ -31,7 +30,6 @@ export const Header: React.FC<HeaderProps> = ({
     opacity: 0.3,
   },
   toolsMenu,
-  buyCoffeeUrl = 'https://buymeacoffee.com/danmarshall',
   onThemeToggle,
   isDarkMode = false,
 }) => {
@@ -99,17 +97,15 @@ export const Header: React.FC<HeaderProps> = ({
             {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         )}
-        {buyCoffeeUrl && (
-          <a
-            className={`${styles.headerLink} ${styles.buyCoffee}`}
-            href={buyCoffeeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Buy me a coffee"
-          >
-            <Coffee size={20} />
-          </a>
-        )}
+        <a
+          className={`${styles.headerLink} ${styles.buyCoffee}`}
+          href="https://buymeacoffee.com/danmarshall"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Buy me a coffee"
+        >
+          <Coffee size={20} />
+        </a>
       </nav>
     </header>
   );

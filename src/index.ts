@@ -13,19 +13,6 @@ export type { MainProps } from './components/Main';
 export { Footer } from './components/Footer';
 export type { FooterProps } from './components/Footer';
 
-export {
-  AccordionSection,
-  SidebarSection,
-  Tabs,
-  ButtonGroup,
-} from './components/SidebarComponents';
-export type {
-  AccordionSectionProps,
-  SidebarSectionProps,
-  TabsProps,
-  ButtonGroupProps,
-} from './components/SidebarComponents';
-
 // Export style modules for consumers who want to use them directly
 export * as headerStyles from './styles/header.css';
 export * as sidebarStyles from './styles/sidebar.css';

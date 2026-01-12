@@ -10,7 +10,6 @@ export interface ToolTemplateProps {
   headerProps: HeaderProps;
   sidebar: React.ReactNode;
   main: React.ReactNode;
-  footer: React.ReactNode;
   adsRight?: React.ReactNode;
   tabletBottomAd?: React.ReactNode;
 }
@@ -19,7 +18,6 @@ export const ToolTemplate: React.FC<ToolTemplateProps> = ({
   headerProps,
   sidebar,
   main,
-  footer,
   adsRight,
   tabletBottomAd,
 }) => {
@@ -75,7 +73,9 @@ export const ToolTemplate: React.FC<ToolTemplateProps> = ({
         </div>
       )}
       
-      <Footer>{footer}</Footer>
+      <Footer>
+        &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
+      </Footer>
     </>
   );
 };

@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
-import {
-  ToolTemplate,
-  AccordionSection,
-  SidebarSection,
-  Tabs,
-  ButtonGroup,
-} from '@danmarshall/tool-style';
+import { ToolTemplate } from '@danmarshall/tool-style';
 
 function App() {
-  const [activeTab, setActiveTab] = useState(0);
-
   return (
     <ToolTemplate
       headerProps={{
@@ -32,38 +24,17 @@ function App() {
       }}
       sidebar={
         <>
-          <AccordionSection title="Collapsible Group" defaultOpen={false}>
-            <label htmlFor="accordionInput1">Hidden Input 1</label>
-            <input type="text" id="accordionInput1" name="accordionInput1" />
-            
-            <label htmlFor="accordionInput2">Hidden Input 2</label>
-            <input type="text" id="accordionInput2" name="accordionInput2" />
-          </AccordionSection>
-          
-          <SidebarSection title="Tabs Example">
-            <Tabs
-              tabs={["Tab 1", "Tab 2", "Tab 3"]}
-              activeTab={activeTab}
-              onTabChange={setActiveTab}
-            />
-          </SidebarSection>
-          
-          <SidebarSection title="Input Group 1">
+          <section>
+            <h2>Input Group 1</h2>
             <label htmlFor="input1">Input 1</label>
             <input type="text" id="input1" name="input1" />
             
             <label htmlFor="input2">Input 2</label>
             <input type="text" id="input2" name="input2" />
-            
-            <label>Alignment</label>
-            <ButtonGroup>
-              <button type="button">◀</button>
-              <button type="button">▬</button>
-              <button type="button">▶</button>
-            </ButtonGroup>
-          </SidebarSection>
+          </section>
           
-          <SidebarSection title="Input Group 2">
+          <section>
+            <h2>Input Group 2</h2>
             <label htmlFor="option1">Option 1</label>
             <select id="option1" name="option1">
               <option>Choose...</option>
@@ -75,14 +46,11 @@ function App() {
             <label htmlFor="slider1">Slider 1</label>
             <input type="range" id="slider1" name="slider1" min="0" max="100" defaultValue="50" />
             
-            <label htmlFor="slider2">Slider 2</label>
-            <input type="range" id="slider2" name="slider2" min="0" max="10" step="0.1" defaultValue="5" />
-            
             <label htmlFor="checkbox1">
               <input type="checkbox" id="checkbox1" name="checkbox1" />
               Enable feature
             </label>
-          </SidebarSection>
+          </section>
           
           <button type="button">Run Tool</button>
         </>
@@ -97,11 +65,6 @@ function App() {
             <button type="button">Action Button 1</button>
             <button type="button">Action Button 2</button>
           </section>
-        </>
-      }
-      footer={
-        <>
-          &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
         </>
       }
       adsRight={

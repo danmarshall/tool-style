@@ -44,11 +44,6 @@ function App() {
           <p>Your tool output goes here</p>
         </div>
       }
-      footer={
-        <>
-          &copy; 2026 My Tool | <a href="/privacy">Privacy</a>
-        </>
-      }
     />
   );
 }
@@ -63,15 +58,9 @@ import {
   Sidebar,
   Main,
   Footer,
-  AccordionSection,
-  SidebarSection,
-  Tabs,
-  ButtonGroup,
 } from '@danmarshall/tool-style';
 
 function MyCustomLayout() {
-  const [activeTab, setActiveTab] = React.useState(0);
-
   return (
     <>
       <Header
@@ -87,26 +76,11 @@ function MyCustomLayout() {
       
       <div style={{ display: 'flex' }}>
         <Sidebar>
-          <AccordionSection title="Advanced Settings" defaultOpen={false}>
-            <label>Hidden Input</label>
+          <section>
+            <h2>Settings</h2>
+            <label>Input 1</label>
             <input type="text" />
-          </AccordionSection>
-          
-          <SidebarSection title="Tabs Example">
-            <Tabs
-              tabs={["Tab 1", "Tab 2", "Tab 3"]}
-              activeTab={activeTab}
-              onTabChange={setActiveTab}
-            />
-          </SidebarSection>
-          
-          <SidebarSection title="Alignment">
-            <ButtonGroup>
-              <button>◀</button>
-              <button>▬</button>
-              <button>▶</button>
-            </ButtonGroup>
-          </SidebarSection>
+          </section>
         </Sidebar>
         
         <Main>
@@ -135,9 +109,10 @@ Main component that includes header, sidebar, main content area, footer, and opt
 - `headerProps`: Configuration for the header (see Header component)
 - `sidebar`: React node for sidebar content
 - `main`: React node for main content
-- `footer`: React node for footer content
 - `adsRight`: Optional React node for right sidebar ads (visible on large screens)
 - `tabletBottomAd`: Optional React node for bottom ads (visible on tablets)
+
+Note: The footer is hardcoded and cannot be customized.
 
 ### Header
 
@@ -149,9 +124,10 @@ Page header with logo, title, tools menu, theme toggle, and coffee button.
 - `backgroundImage`: Optional background image URL
 - `backgroundImageStyle`: Optional styling for background image
 - `toolsMenu`: Optional menu with label and items
-- `buyCoffeeUrl`: URL for coffee button (default: buymeacoffee.com)
 - `onThemeToggle`: Optional custom theme toggle handler
 - `isDarkMode`: Theme state
+
+Note: The "Buy me a coffee" link is hardcoded to https://buymeacoffee.com/danmarshall.
 
 ### Sidebar
 
@@ -173,41 +149,6 @@ Footer component with centered text.
 
 **Props:**
 - `children`: Footer content
-
-### Helper Components
-
-#### AccordionSection
-
-Collapsible section for sidebar.
-
-**Props:**
-- `title`: Section title
-- `children`: Content
-- `defaultOpen`: Whether section is open by default (default: false)
-
-#### SidebarSection
-
-Standard sidebar section with optional title.
-
-**Props:**
-- `title`: Optional section title
-- `children`: Section content
-
-#### Tabs
-
-Tab navigation component.
-
-**Props:**
-- `tabs`: Array of tab labels
-- `activeTab`: Index of active tab
-- `onTabChange`: Callback when tab changes
-
-#### ButtonGroup
-
-Grouped buttons for sidebar (e.g., alignment controls).
-
-**Props:**
-- `children`: Button elements
 
 ## Styling
 
