@@ -1,96 +1,87 @@
 # @danmarshall/tool-style
 
-React component library with vanilla-extract CSS modules for creating tool-style applications.
+Astro layout template for common tools with server-side rendering.
 
 ## Installation
 
 ```bash
-npm install @danmarshall/tool-style react react-dom
+npm install @danmarshall/tool-style astro
 ```
 
 ## Usage
 
-The library provides a complete template component along with individual components for building tool-style applications.
+Import the Layout component in your Astro page and provide content via slots:
 
-### Basic Example
+```astro
+---
+import Layout from '@danmarshall/tool-style/Layout.astro';
+---
 
-```tsx
-import React from 'react';
-import { ToolTemplate } from '@danmarshall/tool-style';
+<Layout title="My Tool">
+  <div slot="sidebar">
+    <!-- Your custom sidebar content -->
+    <section>
+      <h2>Settings</h2>
+      <label for="input1">Input 1</label>
+      <input type="text" id="input1" />
+    </section>
+  </div>
 
-function App() {
-  return (
-    <ToolTemplate
-      headerProps={{
-        title: "My Tool",
-      }}
-      sidebar={
-        <div>
-          <h2>Settings</h2>
-          <label>Input 1</label>
-          <input type="text" />
-        </div>
-      }
-      main={
-        <div>
-          <h2>Output</h2>
-          <p>Your tool output goes here</p>
-        </div>
-      }
-    />
-  );
-}
+  <div slot="main">
+    <!-- Your custom main content -->
+    <section>
+      <h2>Output</h2>
+      <p>Your tool output goes here</p>
+    </section>
+  </div>
+</Layout>
 ```
 
-## Components
+## Layout Props
 
-### ToolTemplate
+The Layout component accepts the following props:
 
-The main and only exported component that provides the complete tool layout.
+- `title` (required): Page title displayed in the header and browser tab
+- `backgroundImage` (optional): URL to a background image for the header
+- `backgroundImageStyle` (optional): Object with CSS properties for the background image:
+  - `backgroundSize`: CSS background-size value (default: '750px')
+  - `backgroundPosition`: CSS background-position value (default: '0px -22px')
+  - `opacity`: Opacity value (default: 0.3)
 
-**Props:**
-- `headerProps`: Configuration for the header
-  - `title`: Page title (required)
-  - `logoUrl`: URL for logo link (default: '/')
-  - `backgroundImage`: Optional background image URL
-  - `backgroundImageStyle`: Optional styling for background image
-  - `onThemeToggle`: Optional custom theme toggle handler
-  - `isDarkMode`: Theme state
-- `sidebar`: React node for sidebar content
-- `main`: React node for main content
+## Slots
 
-**Hardcoded elements** (cannot be customized):
-- Footer content: "© 2026 Tool Name | Privacy | Terms"
-- Coffee donation URL: https://buymeacoffee.com/danmarshall
-- Tools menu: "Other Tools" dropdown with Tool 1-4 links
-- Ad sections: Right sidebar ad (160x600) and tablet bottom ad (728x90)
+The Layout component provides two named slots:
 
-Note: Individual components (Header, Sidebar, Main, Footer) are not exported and cannot be used separately.
+- `sidebar`: Content for the left sidebar
+- `main`: Content for the main content area
+
+## Features
+
+- **Server-Side Rendering**: Fully rendered on the server for better performance and SEO
+- **Client-Side Interactivity**: Small JavaScript for tools menu toggle and theme switching
+- **Dark Mode**: Automatic theme toggle with localStorage persistence
+- **Responsive Design**: Adapts to mobile, tablet, and desktop screens
+
+## Hardcoded Elements
+
+The following elements are part of the template and cannot be customized:
+
+- **Footer**: "© 2026 Tool Name | Privacy | Terms"
+- **Coffee Link**: https://buymeacoffee.com/danmarshall
+- **Tools Menu**: "Other Tools" dropdown with Tool 1-4 links
+- **Ad Sections**: Right sidebar ad (160x600) and tablet bottom ad (728x90)
 
 ## Styling
 
-The library uses vanilla-extract for CSS modules. You can import and use the style modules directly:
+The template includes pre-built styles. If you need to customize styles, you can:
 
-```tsx
-import { headerStyles, sidebarStyles, mainStyles, footerStyles, containerStyles, vars } from '@danmarshall/tool-style';
-```
+1. Override CSS variables in your own stylesheet
+2. Import the base styles and extend them
+3. Use Astro's scoped styles in your page components
 
-## Theme Variables
+## Example
 
-Access theme variables through `vars`:
-
-```tsx
-import { vars } from '@danmarshall/tool-style';
-
-// vars.color.bgColor
-// vars.color.textColor
-// vars.color.borderColor
-// etc.
-```
-
-## Dark Mode
-
-Dark mode is automatically handled by the ToolTemplate component. It saves the theme preference to localStorage and applies the `dark-mode` class to the body element.
+See `/src/pages/index.astro` for a complete example.
 
 ## License
 
