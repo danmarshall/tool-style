@@ -32,6 +32,14 @@ header {
     gap: 1rem;
 }
 
+header a {
+    text-decoration: none;
+}
+
+#buy-coffee {
+    color: inherit;
+}
+
 .brand {
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
@@ -39,6 +47,12 @@ header {
     text-decoration: none;
     color: #666;
     text-transform: lowercase;
+}
+
+.brand img {
+    height: 40px;
+    width: auto;
+    display: block;
 }
 
 .brand:hover {
@@ -210,7 +224,7 @@ aside button {
     width: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    background: #f5f5f5;
+    background: rgba(0,0,0,0.03);
     cursor: pointer;
 }
 
@@ -227,9 +241,9 @@ aside button {
 }
 
 .tab.active {
-    background: white;
+    background: transparent;
     font-weight: 600;
-    border-bottom-color: white;
+    border-bottom-color: transparent;
     position: relative;
     z-index: 1;
 }
@@ -240,17 +254,18 @@ aside button {
 
 main {
     flex: 1;
-    padding: 1rem;
     overflow-y: auto;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    margin: var(--main-margin);
-    box-shadow: var(--main-shadow);
 }
 
-.canvas {
-    margin-top: 1rem;
-    font-family: 'IBM Plex Mono', monospace;
+main section {
+    padding: 1rem;
+    margin: var(--main-margin);
+}
+
+main section:first-child {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    box-shadow: var(--main-shadow);
 }
 
 footer {
@@ -273,7 +288,8 @@ footer a {
   aside {
     width: 100%;
     height: 50vh;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #e9e9e9;
+    background-color: #f5f5f5;
     order: 2;
   }
   
@@ -281,9 +297,6 @@ footer a {
     width: auto;
     height: 50vh;
     order: 1;
-    margin: var(--main-margin);
-    border: 1px solid #ccc;
-    box-shadow: var(--main-shadow);
   }
   
   footer {
@@ -302,7 +315,7 @@ footer a {
 
 #ads-right {
     width: 180px;
-    padding: 1rem;
+    padding: 1rem 0;
     margin-right: 1rem;
     display: none;
     box-sizing: border-box;
@@ -327,8 +340,4 @@ footer a {
 
 @media (min-width: 1280px) {
   #ads-right { display: block; }
-  
-  main {
-    margin-right: calc(var(--main-margin) - 1rem);
-  }
 }
