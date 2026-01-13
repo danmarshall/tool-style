@@ -1,0 +1,144 @@
+/* Sidebar styles */
+aside {
+    width: 300px;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+aside section {
+    margin-bottom: 1.5rem;
+}
+
+aside h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+}
+
+aside label {
+    display: block;
+    margin-bottom: 0.25rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.accordion-section .accordion-header {
+    margin-bottom: 0.5rem;
+}
+
+.accordion-section .accordion-header button {
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+    text-align: left;
+}
+
+.accordion-section .accordion-header button:hover {
+    opacity: 0.7;
+}
+
+.accordion-section .accordion-header button:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.accordion-section .accordion-header svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.accordion-section .accordion-content {
+    display: none;
+    overflow: hidden;
+}
+
+.accordion-section.open .accordion-content {
+    display: block;
+}
+
+aside input[type="text"],
+aside input[type="number"],
+aside input[type="email"],
+aside input[type="url"],
+aside input[type="range"],
+aside select,
+aside textarea {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+aside button {
+    width: 100%;
+    padding: 0.5rem;
+    font-family: inherit;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.button-group button {
+    flex: 1;
+    width: auto;
+    padding: 0.5rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0.75rem;
+}
+
+.tab {
+    flex: 1;
+    width: auto;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    background: var(--button-bg);
+    color: inherit;
+    cursor: pointer;
+}
+
+.tab:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.tab:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.tab:not(:first-child) {
+    border-left: none;
+}
+
+.tab.active {
+    background: transparent;
+    font-weight: 600;
+    border-bottom-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.tab:hover:not(.active) {
+    background: var(--button-hover);
+}

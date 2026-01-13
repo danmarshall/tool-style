@@ -40,6 +40,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+example/node_modules/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -81,6 +82,12 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+
+# Astro build output
+.astro
+
+# Build output
+*.css.ts.vanilla.css
 
 # Gatsby files
 .cache/

@@ -1,0 +1,5 @@
+/* Container layout styles */
+.container {
+    display: flex;
+    box-sizing: border-box;
+}

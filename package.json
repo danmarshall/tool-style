@@ -1,14 +1,28 @@
 {
   "name": "@danmarshall/tool-style",
-  "version": "1.0.0",
-  "description": "Styles for common tools",
-  "main": "script.js",
+  "version": "2.0.0",
+  "description": "Astro template for common tools",
+  "type": "module",
+  "exports": {
+    "./Layout.astro": "./src/Layout.astro",
+    "./styles": "./src/styles/template.css"
+  },
+  "files": [
+    "src/Layout.astro",
+    "src/styles",
+    "public"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "author": "Dan Marshall",
   "license": "MIT",
   "dependencies": {
-    "lucide": "^0.562.0"
+    "astro": "^5.1.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

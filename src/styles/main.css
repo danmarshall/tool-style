@@ -1,0 +1,16 @@
+/* Main content styles */
+main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+main section {
+    padding: 1rem;
+    margin: var(--main-margin);
+}
+
+main section:first-child {
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--main-shadow);
+}
