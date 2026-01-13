@@ -55,12 +55,6 @@ header a {
     text-transform: lowercase;
 }
 
-.logo::before {
-    content: url('/dans_tools.svg');
-    display: block;
-    height: 40px;
-}
-
 .brand:hover {
     color: #333;
 }

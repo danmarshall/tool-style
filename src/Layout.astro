@@ -1,4 +1,5 @@
 ---
+import logo from './dans_tools.svg';
 import './styles/base.css';
 import './styles/header.css';
 import './styles/sidebar.css';
@@ -48,7 +49,7 @@ const bgStyle = backgroundImage
     <header>
         {backgroundImage && <div class="header-bg" style={bgStyle}></div>}
         <div class="header-left">
-            <a href="/" class="logo"></a>
+            <a href="/" class="logo"><img src={logo.src} alt="Logo" width="40" height="40" /></a>
             <h1>{title}</h1>
         </div>
         <nav>
