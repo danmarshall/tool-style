@@ -42,7 +42,7 @@ const bgStyle = backgroundImage
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@700&family=Open+Sans:wght@400;600&family=IBM+Plex+Sans:wght@600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
     <header>
@@ -89,8 +89,18 @@ const bgStyle = backgroundImage
     </footer>
     
     <script is:inline>
-        // Initialize Lucide icons
-        lucide.createIcons();
+        // Wait for DOM and lucide to load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Poll for lucide availability
+            const initLucide = () => {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                } else {
+                    setTimeout(initLucide, 50);
+                }
+            };
+            initLucide();
+        });
 
         // Theme toggle
         const themeToggle = document.getElementById('themeToggle');
@@ -109,7 +119,9 @@ const bgStyle = backgroundImage
             // Update icon
             const icon = themeToggle.querySelector('[data-lucide]');
             icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         });
 
         // Tools menu toggle
