@@ -18,7 +18,7 @@ export const useAppContext = () => {
 };
 
 // Main app component that provides shared state
-export default function SharedStateApp({ children }: { children: React.ReactNode }) {
+export default function SharedStateApp() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState('');
 
@@ -34,10 +34,11 @@ export default function SharedStateApp({ children }: { children: React.ReactNode
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Type something..."
+            aria-label="Enter text to share with main area"
           />
           
           <div style={{ marginTop: '1rem' }}>
-            <label>Counter: {count}</label>
+            <div style={{ marginBottom: '0.5rem' }}>Counter: {count}</div>
             <div style={{ marginTop: '0.5rem' }}>
               <button type="button" onClick={() => setCount(count + 1)}>
                 Increment
