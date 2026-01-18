@@ -45,8 +45,27 @@ button:disabled,
 input[type="button"]:disabled,
 input[type="submit"]:disabled,
 input[type="reset"]:disabled {
-  background: #cccccc;
-  color: #666666;
+  background: #D2E7FC;
+  color: #455060;
   cursor: not-allowed;
-  opacity: 0.6;
+}
+
+/* Spacing between buttons */
+button + button,
+button + input[type="button"],
+button + input[type="submit"],
+button + input[type="reset"],
+input[type="button"] + button,
+input[type="button"] + input[type="button"],
+input[type="button"] + input[type="submit"],
+input[type="button"] + input[type="reset"],
+input[type="submit"] + button,
+input[type="submit"] + input[type="button"],
+input[type="submit"] + input[type="submit"],
+input[type="submit"] + input[type="reset"],
+input[type="reset"] + button,
+input[type="reset"] + input[type="button"],
+input[type="reset"] + input[type="submit"],
+input[type="reset"] + input[type="reset"] {
+  margin-left: 0.5rem;
 }
