@@ -9,7 +9,7 @@ aside {
 
 aside details {
     margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;;
+    padding-bottom: 0.5rem;
 }
 
 aside details summary {
@@ -17,10 +17,33 @@ aside details summary {
     margin-bottom: 0.5rem;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+}
+
+aside details summary::-webkit-details-marker {
+    display: none;
+}
+
+aside details summary::marker {
+    content: '';
+}
+
+aside details summary::before {
+    content: '▸';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+aside details[open] summary::before {
+    transform: rotate(90deg);
 }
 
 aside details > div {
     padding-left: 1rem;
+    overflow: hidden;
 }
 
 aside label {

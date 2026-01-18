@@ -38,6 +38,40 @@ import Layout from '../Layout.astro';
         </div>
       </details>
       
+      <details>
+        <summary>Advanced Options</summary>
+        <div>
+          <label for="color1">Color Picker</label>
+          <input type="color" id="color1" name="color1" value="#ff0000">
+          
+          <label for="date1">Date</label>
+          <input type="date" id="date1" name="date1">
+          
+          <label for="number1">Number</label>
+          <input type="number" id="number1" name="number1" min="0" max="100" value="50">
+        </div>
+      </details>
+      
+      <details>
+        <summary>Export Settings</summary>
+        <div>
+          <label for="format">Format</label>
+          <select id="format" name="format">
+            <option>JSON</option>
+            <option>CSV</option>
+            <option>XML</option>
+          </select>
+          
+          <label for="filename">Filename</label>
+          <input type="text" id="filename" name="filename" value="export">
+          
+          <label for="compression">
+            <input type="checkbox" id="compression" name="compression">
+            Enable compression
+          </label>
+        </div>
+      </details>
+      
       <button type="button">Run Tool</button>
     </aside>
 
