@@ -10,7 +10,9 @@ npm install @danmarshall/tool-style astro
 
 ## Usage
 
-Import the Layout component in your Astro page and provide content via slots:
+Import the Layout component in your Astro page and provide content via the `content` slot:
+
+### Basic Usage
 
 ```astro
 ---
@@ -18,23 +20,72 @@ import Layout from '@danmarshall/tool-style/Layout.astro';
 ---
 
 <Layout title="My Tool">
-  <div slot="sidebar">
-    <!-- Your custom sidebar content -->
-    <section>
-      <h2>Settings</h2>
-      <label for="input1">Input 1</label>
-      <input type="text" id="input1" />
-    </section>
-  </div>
+  <Fragment slot="content">
+    <aside>
+      <!-- Your custom sidebar content -->
+      <section>
+        <h2>Settings</h2>
+        <label for="input1">Input 1</label>
+        <input type="text" id="input1" />
+      </section>
+    </aside>
 
-  <div slot="main">
-    <!-- Your custom main content -->
-    <section>
-      <h2>Output</h2>
-      <p>Your tool output goes here</p>
-    </section>
-  </div>
+    <main>
+      <!-- Your custom main content -->
+      <section>
+        <h2>Output</h2>
+        <p>Your tool output goes here</p>
+      </section>
+    </main>
+  </Fragment>
 </Layout>
+```
+
+### Advanced Usage (Shared React State)
+
+To share React state, context, or providers between sidebar and main areas, use a React component with the `content` slot:
+
+```astro
+---
+import Layout from '@danmarshall/tool-style/Layout.astro';
+import MyApp from '../components/MyApp';
+---
+
+<Layout title="My Tool">
+  <MyApp client:load slot="content" />
+</Layout>
+```
+
+Your React component renders both sidebar and main with shared state:
+
+```tsx
+import React, { useState } from 'react';
+
+export default function MyApp() {
+  const [sharedValue, setSharedValue] = useState('');
+
+  return (
+    <>
+      <aside>
+        <section>
+          <h2>Settings</h2>
+          <input 
+            type="text" 
+            value={sharedValue}
+            onChange={(e) => setSharedValue(e.target.value)}
+          />
+        </section>
+      </aside>
+      
+      <main>
+        <section>
+          <h2>Output</h2>
+          <p>Shared value: {sharedValue}</p>
+        </section>
+      </main>
+    </>
+  );
+}
 ```
 
 ## Layout Props
@@ -50,10 +101,14 @@ The Layout component accepts the following props:
 
 ## Slots
 
-The Layout component provides two named slots:
+The Layout component provides a single `content` slot:
 
-- `sidebar`: Content for the left sidebar
-- `main`: Content for the main content area
+- `content`: Full control over sidebar and main content areas
+
+Your content should render `<aside>` and `<main>` elements directly. This allows you to:
+- Share React state/context between sidebar and main
+- Use a single component that manages both areas
+- Have complete control over the sidebar and main structure
 
 ## Features
 
@@ -81,7 +136,7 @@ The template includes pre-built styles. If you need to customize styles, you can
 
 ## Example
 
-See `/src/pages/index.astro` for a complete example.
+See `/src/pages/index.astro` for a complete example using the `content` slot.
 
 ## License
 
