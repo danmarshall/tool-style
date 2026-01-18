@@ -28,6 +28,10 @@ header a {
     text-decoration: none;
 }
 
+header .logo img{
+    height: 40px;
+}
+
 #buy-coffee {
     color: inherit;
 }
