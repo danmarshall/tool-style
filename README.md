@@ -93,11 +93,6 @@ export default function MyApp() {
 The Layout component accepts the following props:
 
 - `title` (required): Page title displayed in the header and browser tab
-- `backgroundImage` (optional): URL to a background image for the header
-- `backgroundImageStyle` (optional): Object with CSS properties for the background image:
-  - `backgroundSize`: CSS background-size value (default: '750px')
-  - `backgroundPosition`: CSS background-position value (default: '0px -22px')
-  - `opacity`: Opacity value (default: 0.3)
 
 ## Using Accordions
 

@@ -11,27 +11,9 @@ import './styles/mobile.css';
 
 export interface Props {
   title: string;
-  backgroundImage?: string;
-  backgroundImageStyle?: {
-    backgroundSize?: string;
-    backgroundPosition?: string;
-    opacity?: number;
-  };
 }
 
-const { 
-  title,
-  backgroundImage,
-  backgroundImageStyle = {
-    backgroundSize: '750px',
-    backgroundPosition: '0px -22px',
-    opacity: 0.3
-  }
-} = Astro.props;
-
-const bgStyle = backgroundImage 
-  ? `background-image: url('${backgroundImage}'); background-size: ${backgroundImageStyle.backgroundSize}; background-position: ${backgroundImageStyle.backgroundPosition}; opacity: ${backgroundImageStyle.opacity};`
-  : '';
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -47,20 +29,19 @@ const bgStyle = backgroundImage
 </head>
 <body>
     <header>
-        {backgroundImage && <div class="header-bg" style={bgStyle}></div>}
         <div class="header-left">
-            <a href="/" class="logo"><img src={logo.src} alt="Logo" width="40" height="40" /></a>
+            <a href="/" class="logo"><img src={logo.src} alt="Logo" /></a>
             <h1>{title}</h1>
         </div>
         <nav>
-            <button type="button" id="toolsToggle">Other Tools ▾</button>
+            <!-- <button type="button" id="toolsToggle">Other Tools ▾</button> -->
             <a id="buy-coffee" href="https://buymeacoffee.com/danmarshall" target="_blank" title="Buy me a coffee"><i data-lucide="coffee"></i></a>
-            <ul id="toolsList">
+            <!-- <ul id="toolsList">
                 <li><a href="/tool1.html">Tool 1</a></li>
                 <li><a href="/tool2.html">Tool 2</a></li>
                 <li><a href="/tool3.html">Tool 3</a></li>
                 <li><a href="/tool4.html">Tool 4</a></li>
-            </ul>
+            </ul> -->
         </nav>
     </header>
     
@@ -81,7 +62,7 @@ const bgStyle = backgroundImage
     <slot name="footer_content" />
     
     <footer>
-        &copy; 2026 Tool Name | <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a>
+        Check out Dan's other libraries at <a href="https://danmarshall.github.io/" target="_blank">https://danmarshall.github.io/</a>
     </footer>
     
     <script>
