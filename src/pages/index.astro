@@ -1,21 +1,20 @@
 ---
 import Layout from '../Layout.astro';
+import Accordion from '../Accordion.astro';
 ---
 
 <Layout title="Example Tool">
   <Fragment slot="content">
     <aside>
-      <section>
-        <h2>Input Group 1</h2>
+      <Accordion title="Input Group 1" defaultOpen={true}>
         <label for="input1">Input 1</label>
         <input type="text" id="input1" name="input1">
         
         <label for="input2">Input 2</label>
         <input type="text" id="input2" name="input2">
-      </section>
+      </Accordion>
       
-      <section>
-        <h2>Input Group 2</h2>
+      <Accordion title="Input Group 2" defaultOpen={true}>
         <label for="option1">Option 1</label>
         <select id="option1" name="option1">
           <option>Choose...</option>
@@ -31,7 +30,7 @@ import Layout from '../Layout.astro';
           <input type="checkbox" id="checkbox1" name="checkbox1">
           Enable feature
         </label>
-      </section>
+      </Accordion>
       
       <button type="button">Run Tool</button>
     </aside>

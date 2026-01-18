@@ -7,10 +7,6 @@ aside {
     box-sizing: border-box;
 }
 
-aside section {
-    margin-bottom: 1.5rem;
-}
-
 aside h2 {
     font-size: 1rem;
     margin-bottom: 0.5rem;

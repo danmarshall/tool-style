@@ -1,0 +1,41 @@
+---
+import './styles/accordion.css';
+
+export interface Props {
+  title: string;
+  defaultOpen?: boolean;
+}
+
+const { title, defaultOpen = true } = Astro.props;
+const contentId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
+const headerId = `${contentId}-header`;
+---
+
+<section class="accordion" data-accordion>
+  <h2 id={headerId} class="accordion-heading">
+    <button
+      class="accordion-header"
+      type="button"
+      aria-expanded={defaultOpen}
+      aria-controls={contentId}
+    >
+      <span>{title}</span>
+      <i data-lucide="chevron-down" class="accordion-icon" aria-hidden="true"
+      ></i>
+    </button>
+  </h2>
+  <div
+    id={contentId}
+    class="accordion-content"
+    role="region"
+    aria-labelledby={headerId}
+    data-accordion-content
+    style={defaultOpen ? "" : "display: none;"}
+  >
+    <slot />
+  </div>
+</section>
+
+<script>
+  import './scripts/accordion';
+</script>

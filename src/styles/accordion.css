@@ -1,0 +1,31 @@
+.accordion {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.accordion-heading {
+  margin: 0;
+}
+
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.accordion-icon {
+  transition: transform 0.2s;
+}
+
+.accordion-header[aria-expanded="false"] .accordion-icon {
+  transform: rotate(-90deg);
+}
+
+.accordion-content {
+  padding-left: 1rem;
+}
