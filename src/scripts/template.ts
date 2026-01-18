@@ -41,30 +41,44 @@ document.querySelectorAll('details').forEach(details => {
                     if (other !== details && other.open) {
                         const otherContent = other.querySelector('div');
                         if (otherContent) {
+                            const startHeight = otherContent.scrollHeight;
                             const animate = otherContent.animate([
-                                { maxHeight: otherContent.scrollHeight + 'px', opacity: 1 },
-                                { maxHeight: '0px', opacity: 0 }
-                            ], { duration: 200, easing: 'ease-out' });
+                                { height: startHeight + 'px', opacity: 1 },
+                                { height: '0px', opacity: 0 }
+                            ], { duration: 250, easing: 'ease-in-out' });
                             
-                            animate.onfinish = () => other.removeAttribute('open');
+                            animate.onfinish = () => {
+                                other.removeAttribute('open');
+                                otherContent.style.height = '';
+                            };
                         }
                     }
                 });
             }
             
             if (details.open) {
-                const animate = content.animate([
-                    { maxHeight: content.scrollHeight + 'px', opacity: 1 },
-                    { maxHeight: '0px', opacity: 0 }
-                ], { duration: 200, easing: 'ease-out' });
+                const startHeight = content.scrollHeight;
+                content.style.height = startHeight + 'px';
                 
-                animate.onfinish = () => details.removeAttribute('open');
+                requestAnimationFrame(() => {
+                    const animate = content.animate([
+                        { height: startHeight + 'px', opacity: 1 },
+                        { height: '0px', opacity: 0 }
+                    ], { duration: 250, easing: 'ease-in-out' });
+                    
+                    animate.onfinish = () => {
+                        details.removeAttribute('open');
+                        content.style.height = '';
+                    };
+                });
             } else {
                 details.setAttribute('open', '');
+                const endHeight = content.scrollHeight;
+                
                 content.animate([
-                    { maxHeight: '0px', opacity: 0 },
-                    { maxHeight: content.scrollHeight + 'px', opacity: 1 }
-                ], { duration: 200, easing: 'ease-out' });
+                    { height: '0px', opacity: 0 },
+                    { height: endHeight + 'px', opacity: 1 }
+                ], { duration: 250, easing: 'ease-in-out' });
             }
         });
     }
