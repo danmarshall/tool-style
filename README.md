@@ -145,8 +145,6 @@ The template includes pre-built styles. If you need to customize styles, you can
 
 See `/src/pages/index.astro` for a basic example using separate sidebar and main slots.
 
-See `/src/pages/react-example.astro` for an advanced example with React and shared state using the content slot.
-
 ## License
 
 MIT
