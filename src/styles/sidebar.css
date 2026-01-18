@@ -7,11 +7,20 @@ aside {
     box-sizing: border-box;
 }
 
-aside h2 {
+aside details {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;;
+}
+
+aside details summary {
     font-size: 1rem;
     margin-bottom: 0.5rem;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
+}
+
+aside details > div {
+    padding-left: 1rem;
 }
 
 aside label {

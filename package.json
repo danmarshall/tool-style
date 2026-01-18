@@ -5,12 +5,10 @@
   "type": "module",
   "exports": {
     "./Layout.astro": "./src/Layout.astro",
-    "./Accordion.astro": "./src/Accordion.astro",
     "./styles": "./src/styles/template.css"
   },
   "files": [
     "src/Layout.astro",
-    "src/Accordion.astro",
     "src/dans_tools.svg",
     "src/styles",
     "src/scripts",

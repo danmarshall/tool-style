@@ -1,36 +1,42 @@
 ---
 import Layout from '../Layout.astro';
-import Accordion from '../Accordion.astro';
 ---
 
 <Layout title="Example Tool">
   <Fragment slot="content">
     <aside>
-      <Accordion title="Input Group 1" defaultOpen={true}>
-        <label for="input1">Input 1</label>
-        <input type="text" id="input1" name="input1">
-        
-        <label for="input2">Input 2</label>
-        <input type="text" id="input2" name="input2">
-      </Accordion>
+      <details open>
+        <summary>Input Group 1</summary>
+        <div>
+          <label for="input1">Input 1</label>
+          <input type="text" id="input1" name="input1">
+          
+          <label for="input2">Input 2</label>
+          <input type="text" id="input2" name="input2">
+          
+        </div>
+      </details>
       
-      <Accordion title="Input Group 2" defaultOpen={true}>
-        <label for="option1">Option 1</label>
-        <select id="option1" name="option1">
-          <option>Choose...</option>
-          <option>Option A</option>
-          <option>Option B</option>
-          <option>Option C</option>
-        </select>
-        
-        <label for="slider1">Slider 1</label>
-        <input type="range" id="slider1" name="slider1" min="0" max="100" value="50">
-        
-        <label for="checkbox1">
-          <input type="checkbox" id="checkbox1" name="checkbox1">
-          Enable feature
-        </label>
-      </Accordion>
+      <details open>
+        <summary>Input Group 2</summary>
+        <div>
+          <label for="option1">Option 1</label>
+          <select id="option1" name="option1">
+            <option>Choose...</option>
+            <option>Option A</option>
+            <option>Option B</option>
+            <option>Option C</option>
+          </select>
+          
+          <label for="slider1">Slider 1</label>
+          <input type="range" id="slider1" name="slider1" min="0" max="100" value="50">
+          
+          <label for="checkbox1">
+            <input type="checkbox" id="checkbox1" name="checkbox1">
+            Enable feature
+          </label>
+        </div>
+      </details>
       
       <button type="button">Run Tool</button>
     </aside>

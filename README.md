@@ -99,6 +99,23 @@ The Layout component accepts the following props:
   - `backgroundPosition`: CSS background-position value (default: '0px -22px')
   - `opacity`: Opacity value (default: 0.3)
 
+## Using Accordions
+
+Use native HTML `<details>` and `<summary>` elements for collapsible sections:
+
+```astro
+<details open>
+  <summary><h2>Section Name</h2></summary>
+  <div>
+    <label for="input1">Input 1</label>
+    <input type="text" id="input1" />
+    <!-- Any content -->
+  </div>
+</details>
+```
+
+No JavaScript needed - fully accessible and semantic HTML.
+
 ## Slots
 
 The Layout component provides a single `content` slot:
