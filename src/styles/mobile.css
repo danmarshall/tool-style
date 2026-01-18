@@ -1,5 +1,9 @@
 /* Mobile and responsive styles */
 @media (max-width: 999px) {
+  header {
+    border-bottom: 1px solid #eee;
+  }
+
   .container {
     flex-direction: column;
     width: 100%;
