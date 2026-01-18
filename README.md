@@ -10,9 +10,9 @@ npm install @danmarshall/tool-style astro
 
 ## Usage
 
-### Basic Usage (Separate Sidebar and Main)
+Import the Layout component in your Astro page and provide content via the `content` slot:
 
-Import the Layout component in your Astro page and provide content via slots:
+### Basic Usage
 
 ```astro
 ---
@@ -20,28 +20,30 @@ import Layout from '@danmarshall/tool-style/Layout.astro';
 ---
 
 <Layout title="My Tool">
-  <div slot="sidebar">
-    <!-- Your custom sidebar content -->
-    <section>
-      <h2>Settings</h2>
-      <label for="input1">Input 1</label>
-      <input type="text" id="input1" />
-    </section>
-  </div>
+  <Fragment slot="content">
+    <aside>
+      <!-- Your custom sidebar content -->
+      <section>
+        <h2>Settings</h2>
+        <label for="input1">Input 1</label>
+        <input type="text" id="input1" />
+      </section>
+    </aside>
 
-  <div slot="main">
-    <!-- Your custom main content -->
-    <section>
-      <h2>Output</h2>
-      <p>Your tool output goes here</p>
-    </section>
-  </div>
+    <main>
+      <!-- Your custom main content -->
+      <section>
+        <h2>Output</h2>
+        <p>Your tool output goes here</p>
+      </section>
+    </main>
+  </Fragment>
 </Layout>
 ```
 
 ### Advanced Usage (Shared React State)
 
-To share React state, context, or providers between sidebar and main areas, use the `content` slot with a React component:
+To share React state, context, or providers between sidebar and main areas, use a React component with the `content` slot:
 
 ```astro
 ---
@@ -54,7 +56,7 @@ import MyApp from '../components/MyApp';
 </Layout>
 ```
 
-Your React component can then render both sidebar and main with shared state:
+Your React component renders both sidebar and main with shared state:
 
 ```tsx
 import React, { useState } from 'react';
@@ -99,23 +101,14 @@ The Layout component accepts the following props:
 
 ## Slots
 
-The Layout component provides multiple ways to structure your content:
+The Layout component provides a single `content` slot:
 
-### Option 1: Separate Slots
-- `sidebar`: Content for the left sidebar
-- `main`: Content for the main content area
-
-Use this when you have simple, independent sidebar and main content.
-
-### Option 2: Unified Content Slot
 - `content`: Full control over sidebar and main content areas
 
-Use this when you need to:
+Your content should render `<aside>` and `<main>` elements directly. This allows you to:
 - Share React state/context between sidebar and main
 - Use a single component that manages both areas
 - Have complete control over the sidebar and main structure
-
-When using the `content` slot, your component should render `<aside>` and `<main>` elements directly.
 
 ## Features
 
@@ -143,7 +136,7 @@ The template includes pre-built styles. If you need to customize styles, you can
 
 ## Example
 
-See `/src/pages/index.astro` for a basic example using separate sidebar and main slots.
+See `/src/pages/index.astro` for a complete example using the `content` slot.
 
 ## License
 

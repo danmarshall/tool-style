@@ -3,48 +3,50 @@ import Layout from '../Layout.astro';
 ---
 
 <Layout title="Example Tool">
-  <div slot="sidebar">
-    <section>
-      <h2>Input Group 1</h2>
-      <label for="input1">Input 1</label>
-      <input type="text" id="input1" name="input1">
+  <Fragment slot="content">
+    <aside>
+      <section>
+        <h2>Input Group 1</h2>
+        <label for="input1">Input 1</label>
+        <input type="text" id="input1" name="input1">
+        
+        <label for="input2">Input 2</label>
+        <input type="text" id="input2" name="input2">
+      </section>
       
-      <label for="input2">Input 2</label>
-      <input type="text" id="input2" name="input2">
-    </section>
-    
-    <section>
-      <h2>Input Group 2</h2>
-      <label for="option1">Option 1</label>
-      <select id="option1" name="option1">
-        <option>Choose...</option>
-        <option>Option A</option>
-        <option>Option B</option>
-        <option>Option C</option>
-      </select>
+      <section>
+        <h2>Input Group 2</h2>
+        <label for="option1">Option 1</label>
+        <select id="option1" name="option1">
+          <option>Choose...</option>
+          <option>Option A</option>
+          <option>Option B</option>
+          <option>Option C</option>
+        </select>
+        
+        <label for="slider1">Slider 1</label>
+        <input type="range" id="slider1" name="slider1" min="0" max="100" value="50">
+        
+        <label for="checkbox1">
+          <input type="checkbox" id="checkbox1" name="checkbox1">
+          Enable feature
+        </label>
+      </section>
       
-      <label for="slider1">Slider 1</label>
-      <input type="range" id="slider1" name="slider1" min="0" max="100" value="50">
-      
-      <label for="checkbox1">
-        <input type="checkbox" id="checkbox1" name="checkbox1">
-        Enable feature
-      </label>
-    </section>
-    
-    <button type="button">Run Tool</button>
-  </div>
+      <button type="button">Run Tool</button>
+    </aside>
 
-  <div slot="main">
-    <section>
-      <div style="min-height: 400px;">
-        <h2>Output</h2>
-        <p>Tool output goes here</p>
-      </div>
-    </section>
-    <section>
-      <button type="button">Action Button 1</button>
-      <button type="button">Action Button 2</button>
-    </section>
-  </div>
+    <main>
+      <section>
+        <div style="min-height: 400px;">
+          <h2>Output</h2>
+          <p>Tool output goes here</p>
+        </div>
+      </section>
+      <section>
+        <button type="button">Action Button 1</button>
+        <button type="button">Action Button 2</button>
+      </section>
+    </main>
+  </Fragment>
 </Layout>

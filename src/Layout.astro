@@ -66,15 +66,7 @@ const bgStyle = backgroundImage
     </header>
     
     <div class="container">
-        <slot name="content">
-            <aside>
-                <slot name="sidebar" />
-            </aside>
-            
-            <main>
-                <slot name="main" />
-            </main>
-        </slot>
+        <slot name="content" />
 
         <aside id="ads-right">
             <div class="ad-label">Advertisement</div>
