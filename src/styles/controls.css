@@ -12,6 +12,10 @@ input[type="file"]::file-selector-button {
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 
+input[type="file"]::file-selector-button {
+  background: unset
+}
+
 button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
