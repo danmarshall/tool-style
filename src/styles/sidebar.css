@@ -53,6 +53,18 @@ aside label {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.label-with-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.label-with-link a {
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+}
+
 .accordion-section .accordion-header {
     margin-bottom: 0.5rem;
 }
