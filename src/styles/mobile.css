@@ -1,5 +1,12 @@
+/* Mobile portrait styles */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+}
+
 /* Mobile and responsive styles */
-@media (max-width: 999px) {
+@media (max-width: 999px) and (orientation: portrait) {
   header {
     border-bottom: 1px solid #eee;
   }
