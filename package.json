@@ -9,7 +9,7 @@
   },
   "files": [
     "src/Layout.astro",
-    "src/dans_tools.svg",
+    "src/dans_toolz.svg",
     "src/styles",
     "src/scripts",
     "public"
