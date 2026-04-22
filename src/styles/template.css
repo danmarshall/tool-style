@@ -85,7 +85,7 @@ header a {
 }
 
 .logo::before {
-    content: url('/dans_tools.svg');
+    content: url('/dans_toolz.svg');
     display: block;
     height: 40px;
 }
