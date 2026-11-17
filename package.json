@@ -22,7 +22,7 @@
   "author": "Dan Marshall",
   "license": "MIT",
   "dependencies": {
-    "astro": "^5.1.5"
+    "astro": "^7.4.7"
   },
   "devDependencies": {
     "@astrojs/react": "^4.4.2",
